@@ -60,11 +60,13 @@ export const resolvers = {
     }
   },
   Company: {
-    jobs: (company) => getJobsByCompany(company.id),
+    jobs: company => getJobsByCompany(company.id),
   },
   Job: {
-    company: (job) => getCompany(job.companyId),
-    date: (job) => toIsoDate(job.createdAt),
+    company: (job, _args, { companyLoader }) => {
+      return companyLoader.load(job.companyId);
+    },
+    date: job => toIsoDate(job.createdAt),
   }
 };
 
