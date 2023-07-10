@@ -3,7 +3,7 @@
 // for better security. Also, it doesn't handle token expiration.
 import jwtDecode from 'jwt-decode';
 
-const API_URL = 'http://localhost:9000';
+export const API_URL = 'http://localhost:9000';
 
 const ACCESS_TOKEN_KEY = 'accessToken';
 
