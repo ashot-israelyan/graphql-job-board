@@ -36,8 +36,11 @@ function CreateJobPage() {
               Title
             </label>
             <div className="control">
-              <input className="input" type="text" value={title}
-                     onChange={(event) => setTitle(event.target.value)}
+              <input
+                className="input"
+                type="text"
+                value={title}
+                onChange={(event) => setTitle(event.target.value)}
               />
             </div>
           </div>
@@ -46,8 +49,11 @@ function CreateJobPage() {
               Description
             </label>
             <div className="control">
-              <textarea className="textarea" rows={10} value={description}
-                        onChange={(event) => setDescription(event.target.value)}
+              <textarea
+                className="textarea"
+                rows={10}
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
               />
             </div>
           </div>

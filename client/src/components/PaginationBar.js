@@ -2,20 +2,25 @@ function PaginationBar({ currentPage, totalPages, onPageChange }) {
   const pages = getVisiblePages(currentPage, totalPages);
   return (
     <nav className="pagination is-centered" role="navigation" aria-label="pagination">
-      <button className="pagination-previous" aria-label="Previous page"
+      <button
+        className="pagination-previous" aria-label="Previous page"
         disabled={currentPage === 1}
         onClick={() => onPageChange(currentPage - 1)}>
         &#x25C0;
       </button>
-      <button className="pagination-next" arial-label="Next page"
+      <button
+        className="pagination-next"
         disabled={currentPage === totalPages}
-        onClick={() => onPageChange(currentPage + 1)}>
+        onClick={() => onPageChange(currentPage + 1)}
+      >
         &#x25B6;
       </button>
       <ul className="pagination-list">
         {pages.map((page) => (
           <li key={page}>
-            <PageButton page={page} currentPage={currentPage}
+            <PageButton
+              page={page}
+              currentPage={currentPage}
               onClick={() => onPageChange(page)}
             />
           </li>
@@ -28,8 +33,11 @@ function PaginationBar({ currentPage, totalPages, onPageChange }) {
 function PageButton({ page, currentPage, onClick }) {
   if (page === currentPage) {
     return (
-      <button className="pagination-link is-current"
-        aria-label={`Page ${page}`} aria-current="page">
+      <button
+        className="pagination-link is-current"
+        aria-label={`Page ${page}`}
+        aria-current="page"
+      >
         {page}
       </button>
     );
@@ -42,8 +50,11 @@ function PageButton({ page, currentPage, onClick }) {
     );
   }
   return (
-    <button className="pagination-link" aria-label={`Go to page ${page}`}
-      onClick={onClick}>
+    <button
+      className="pagination-link"
+      aria-label={`Go to page ${page}`}
+      onClick={onClick}
+    >
       {page}
     </button>
   );
@@ -53,11 +64,11 @@ function PageButton({ page, currentPage, onClick }) {
  * Calculates a list of at most 7 pages to display.
  * Always includes the current, previous, next, first
  * and last ones if available.
- * 
+ *
  * @returns an array with the page numbers to display.
  * It can include the special `'<'` and `'>'` elements
  * to represent skipped pages.
- * 
+ *
  * @example
  * getVisiblePages(4, 5) // => [1, 2, 3, 4, 5]
  * getVisiblePages(4, 8) // => [1, 2, 3, 4, 5, '>', 8]

@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { logout } from '../lib/auth';
 
 function NavBar({ user, onLogout }) {
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
     logout();
     onLogout();
   };
@@ -23,8 +24,7 @@ function NavBar({ user, onLogout }) {
           <Link className="navbar-item" to="/jobs/new">
             Post Job
           </Link>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className="navbar-item" onClick={handleLogout}>
+          <a className="navbar-item" href="/" onClick={handleLogout}>
             Logout
           </a>
         </div>

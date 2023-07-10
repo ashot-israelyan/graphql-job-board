@@ -15,6 +15,7 @@ function JobItem({ job }) {
   const title = job.company
     ? `${job.title} at ${job.company.name}`
     : job.title;
+
   return (
     <li className="media">
       <div className="media-left has-text-grey">

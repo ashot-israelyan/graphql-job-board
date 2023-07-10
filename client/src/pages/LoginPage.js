@@ -24,7 +24,11 @@ function LoginPage({ onLogin }) {
           Email
         </label>
         <div className="control">
-          <input className="input" type="email" required value={email}
+          <input
+            className="input"
+            type="email"
+            required
+            value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </div>
@@ -34,7 +38,11 @@ function LoginPage({ onLogin }) {
           Password
         </label>
         <div className="control">
-          <input className="input" type="password" required value={password}
+          <input
+            className="input"
+            type="password"
+            required
+            value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
